@@ -6,7 +6,7 @@ import java.util.Random;
 import java.lang.Math;
 import java.util.Arrays;
 
-public class Main {
+public class CycleTask {
 
     public static void main(String[] args) {
         //foo1();
