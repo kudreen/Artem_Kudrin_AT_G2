@@ -5,8 +5,11 @@ public class Bubble {
     String gas;
 
     private Bubble(String gas) {
+
         gas = "CO2";
     }
+
+
 
     public void cramp() {
         System.out.println("Cramp!");
