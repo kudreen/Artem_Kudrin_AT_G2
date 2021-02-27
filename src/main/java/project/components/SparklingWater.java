@@ -4,8 +4,6 @@ class SparklingWater extends Water {
     private static boolean isOpened;
     private static Bubble[] bubbles;
 
-
-
     public SparklingWater() throws InterruptedException {
 
         // должен вызывать метод isOpened
@@ -14,12 +12,12 @@ class SparklingWater extends Water {
     }
 
     public void pump(Bubble[] bubbles){
+        Bubble[] water = new Bubble[0];
+        bubbles = water;
 
-        this.bubbles = bubbles;
 
 
 
-        ;
         System.out.printf(" Pumping bubbles into water").println();
     }
 
@@ -27,12 +25,13 @@ class SparklingWater extends Water {
         isOpened = true;
         System.out.printf(" Change isOpened to %s", isOpened).println();
     }
+
 public static class MyThread extends Thread {
     public static void isOpened() throws InterruptedException {
         MyThread myThread = new MyThread();
         myThread.start();
-            new Bottle(0.5).open();
-            if (isOpened) {
+        //?????
+            if (isOpened == true) {
                 degas();
             }
             System.out.printf(" Checking bottle statement and run degas()").println();

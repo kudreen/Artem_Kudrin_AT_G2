@@ -5,11 +5,16 @@ public class Bottle {
     private SparklingWater water;
     private Bubble[] bobbles;
 
-    public Bottle(double volume) {
+    public Bottle(double volume) throws InterruptedException {
 
-        this.bobbles = new Bubble[(int) (volume * 10000)]; //заполнилось массивом пузырьков из расчёта объёма
+         this.bobbles = new Bubble[(int) (volume * 10000)]; //заполнилось массивом пузырьков из расчёта объёма
+        this.setWater(water);
+         water = water;
+        water.pump(bobbles);
 
-       this.water.pump(bobbles);
+
+
+
     }
 
 
@@ -26,14 +31,19 @@ public class Bottle {
     }
 
     public SparklingWater getWater() {
+        this.water = water;
         System.out.printf(" Getting 'Water' object");
         return water;
         // тут ок
     }
+    public void setWater(SparklingWater water) throws InterruptedException {
 
-    public void setWater(SparklingWater water) {
-        this.water = water;
+        water = new SparklingWater();
+
+
+
+
         System.out.print(" Add new 'water' object ");
-        //тут ок
+
     }
 }
