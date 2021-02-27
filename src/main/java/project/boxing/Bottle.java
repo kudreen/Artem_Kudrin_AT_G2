@@ -7,14 +7,11 @@ public class Bottle {
 
     public Bottle(double volume) throws InterruptedException {
 
-         this.bobbles = new Bubble[(int) (volume * 10000)]; //заполнилось массивом пузырьков из расчёта объёма
+        this.bobbles = new Bubble[(int) (volume * 10000)]; //заполнилось массивом пузырьков из расчёта объёма
         this.setWater(water);
-         water = water;
+        water = new SparklingWater();
+
         water.pump(bobbles);
-
-
-
-
     }
 
 
@@ -36,13 +33,9 @@ public class Bottle {
         return water;
         // тут ок
     }
+
     public void setWater(SparklingWater water) throws InterruptedException {
-
         water = new SparklingWater();
-
-
-
-
         System.out.print(" Add new 'water' object ");
 
     }
