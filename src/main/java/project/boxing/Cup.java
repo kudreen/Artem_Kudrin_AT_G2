@@ -1,0 +1,15 @@
+package com.company;
+
+public abstract class Cup extends Vessel implements Containable {
+    private double volume;
+    private double diameter;
+    private int weight;
+    private Material material;
+
+    public Cup() {
+        this.volume = 0;
+        this.diameter = 0;
+        this.weight = 0;
+        this.material = null;
+    }
+}
