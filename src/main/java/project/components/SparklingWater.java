@@ -1,60 +1,76 @@
 package com.company;
 
-class SparklingWater extends Water {
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class SparklingWater extends Water {//implements Serializable { //ругается на то, что класс не абстрактный
     private static boolean isOpened;
-    private static Bubble[] bubbles;
+    static List<Integer> bubbles = new ArrayList<>();
+    SparklingWater water;
+
 
     public SparklingWater() throws InterruptedException {
-
-        // должен вызывать метод isOpened
-        MyThread.isOpened();
-        System.out.printf(" Calling inner method 'isOpened()'").println();
+        isOpened();
+        //   System.out.printf(" Calling inner method 'isOpened()'").println();
     }
 
-    public void pump(Bubble[] bubbles){
-        Bubble[] water = new Bubble[0];
-        bubbles = water;
-
-
-
-
-        System.out.printf(" Pumping bubbles into water").println();
+    public static void pump(List<Integer> bubbles) throws InterruptedException {
+        SparklingWater.bubbles = bubbles;
     }
 
     public void setOpened(boolean isOpened) {
-        isOpened = true;
-        System.out.printf(" Change isOpened to %s", isOpened).println();
+        // System.out.printf(" Change isOpened to %s", isOpened).println();
     }
 
-public static class MyThread extends Thread {
-    public static void isOpened() throws InterruptedException {
-        MyThread myThread = new MyThread();
-        myThread.start();
-        //?????
-            if (isOpened == true) {
+
+    public void isOpened() {
+        Thread thread = new Thread();
+        thread.run();
+        {
+            while (isOpened) {
+
+                System.out.println("Bottle is closed..");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
                 degas();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            System.out.printf(" Checking bottle statement and run degas()").println();
         }
+        ;
+        thread.start();
+    }
+    //   System.out.printf(" Checking bottle statement and run degas()").println()
+
+    private static void degas() throws InterruptedException {
+        Thread.sleep(1000);
+        int a = 10 + 5 * temperature;
+        for (int i = 0; i < bubbles.size(); i++) {
+            System.out.println(i + "Cramp!");
+        }
+        // System.out.printf(" Degassing water by formula ").println();
+
     }
 
-        public static void degas() throws InterruptedException {
-        new Bottle(0.5).warm(10);
-        Thread.sleep(1000);
-        for (int i = 0; i < bubbles.length; i = 10+5 * temperature) {
-                return;
-            }
-        System.out.printf(" Degassing water by formula ").println();
-
-        }
-
-        public void isSparkle(){
+    public void isSparkle() {
         boolean bobblesLeft = false;
-        if (bubbles.length >0){
+        if (bubbles.size() > 0) {
             bobblesLeft = true;
         }
-        System.out.printf(" Checking how much bubbles left in water ").println();
-        }
+        // System.out.printf(" Checking how much bubbles left in water ").println();
     }
+
+
+    @Override
+    public void mix() {
+
+    }
+}
 
 

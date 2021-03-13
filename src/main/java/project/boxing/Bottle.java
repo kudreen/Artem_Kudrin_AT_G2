@@ -1,19 +1,23 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bottle extends Vessel {
-    private double volume;
     private SparklingWater water;
-    public Bubble[] bobbles;
+    List<Integer> bubbles = new ArrayList<>();
 
+    public Bottle(double volume, double diameter, int weight, Material material) throws InterruptedException {
+        super(volume, diameter, weight, material);
+        for (int i = 0; i < volume * 10000; i++) {
+            this.bubbles.add(i);
+        }
+        SparklingWater.pump(bubbles);
+        volume = volume;
+        this.bubbles = bubbles;
 
-
-    public Bottle(double volume) throws InterruptedException {
-        Bubble[] bobbles = new Bubble[(int) (volume * 10000)];//заполнилось массивом пузырьков из расчёта объёма
-        setWater(water);
-        SparklingWater.pump(bobbles);
-        this.volume = volume;
-        this.bobbles = bobbles;
     }
+
 
     public void open() {
         this.water.setOpened(true);
@@ -34,41 +38,6 @@ public class Bottle extends Vessel {
         this.water = water;
         //System.out.print(" Add new 'water' object ");
     }
-
-
-    private double diameter;
-    private int weight;
-    private Material material;
-
-    public double getVolume() {
-        return volume;
-    }
-    public void setVolume(double volume) {this.volume = volume;}
-
-    public double getDiameter() {
-        return diameter;
-    }
-    public void setDiameter(double diameter) {this.diameter = diameter;}
-
-    public int getWeight() {
-        return weight;
-    }
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-    public void setMaterial(Material material) {this.material = material;}
-
-    public Bottle() {
-        this.volume = 0;
-        this.diameter = 0;
-        this.weight = 0;
-        this.material = null;
-    }
-
 }
 
    /* @Override

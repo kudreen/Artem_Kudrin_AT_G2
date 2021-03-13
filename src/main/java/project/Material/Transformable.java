@@ -1,5 +1,5 @@
 package com.company;
 
-public interface Transformable extends Containable {
-    //void mix();
+public interface Transformable {
+    void mix();
 }
