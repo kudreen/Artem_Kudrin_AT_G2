@@ -1,34 +1,52 @@
-package com.company;
+package com.company.stuff;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SparklingWater extends Water {//implements Serializable { //ругается на то, что класс не абстрактный
-    private static boolean isOpened;
-    static List<Integer> bubbles = new ArrayList<>();
+public class SparklingWater extends Water implements Serializable {
+   private boolean isOpened;
+   //private Bubble[] bubbles;
+   static List<Integer> bubbles = new ArrayList<>();
     SparklingWater water;
 
 
-    public SparklingWater() throws InterruptedException {
+    public SparklingWater(double volume) throws InterruptedException {
+
+
+        for (int i = 0; i < volume * 10000; i++) {
+            this.bubbles.add(i);
+        }
+        //SparklingWater.pump(bubbles);
+        this.bubbles = bubbles;
+
+
+
         isOpened();
-        //   System.out.printf(" Calling inner method 'isOpened()'").println();
     }
 
-    public static void pump(List<Integer> bubbles) throws InterruptedException {
-        SparklingWater.bubbles = bubbles;
-    }
+
+
+    //public static void pump(List<Integer> bubbles) throws InterruptedException {
+      //  SparklingWater.bubbles = bubbles;
+    //}
 
     public void setOpened(boolean isOpened) {
-        // System.out.printf(" Change isOpened to %s", isOpened).println();
+        isOpened = true;
+    }
+
+    @Override
+    public void setTemperature() {
+
     }
 
 
-    public void isOpened() {
+    private boolean isOpened() {
         Thread thread = new Thread();
         thread.run();
         {
-            while (isOpened) {
+            while (this.isOpened = false) {
 
                 System.out.println("Bottle is closed..");
                 try {
@@ -43,8 +61,10 @@ public class SparklingWater extends Water {//implements Serializable { //руг�
                 e.printStackTrace();
             }
         }
-        ;
+
         thread.start();
+
+        return true;
     }
     //   System.out.printf(" Checking bottle statement and run degas()").println()
 
@@ -71,6 +91,7 @@ public class SparklingWater extends Water {//implements Serializable { //руг�
     public void mix() {
 
     }
+
 }
 
 

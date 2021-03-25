@@ -1,4 +1,6 @@
-package com.company;
+package com.company.vessel;
+
+import com.company.material.Material;
 
 public abstract class Vessel {
     private double volume;
@@ -6,11 +8,25 @@ public abstract class Vessel {
     private int weight;
     private Material material;
 
+
     public Vessel(double volume, double diameter, int weight, Material material) {
         this.volume = 1;
         this.diameter = 1;
         this.weight = 1;
         this.material = material;
+    }
+
+    public Vessel() {
+        Material density = new Material() {
+            @Override
+            public double getDensity() {
+                return super.getDensity();
+            }
+        };
+
+        double dens = density.getDensity();
+
+        this.weight = (int) (dens * volume / 4);
     }
 
     public double getVolume() {

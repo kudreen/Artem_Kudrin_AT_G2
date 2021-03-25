@@ -1,7 +1,7 @@
-package com.company;
+package com.company.stuff;
 
 public class Bubble {
-    double volume = 03;
+    public static final double volume = 03;
     String gas;
 
     private Bubble(String gas) {

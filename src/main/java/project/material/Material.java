@@ -1,4 +1,4 @@
-package com.company;
+package com.company.material;
 
 public abstract class Material {
     private double thermalConductivity;
@@ -10,6 +10,14 @@ public abstract class Material {
         this.color = "white";
         this.density = 0;
     }
+
+    public Material() {
+
+    }
+
+    /*public Material() {
+
+    }*/
 
     public double getThermalConductivity() {
         return thermalConductivity;

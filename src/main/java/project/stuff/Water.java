@@ -1,10 +1,10 @@
-package com.company;
+package com.company.stuff;
 
 public abstract class Water implements Transformable {
     String color = "no";
     String transparency = "transparent";
     String smell = "no";
-    static int temperature = 2;
+    static int temperature = 0;
 
     public String getColor() {
         return color;
