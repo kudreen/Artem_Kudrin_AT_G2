@@ -3,18 +3,35 @@ package com.company.warehouse;
 import com.company.vessel.Vessel;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Map;
 
-public class Stocktaking {
+public class Stocktaking extends Warehouse {
+    private static final Path FILE = Path.of("C:\\File\\VesselBox");
 
-    public static void write(VesselBox<Vessel> vessel) throws IOException {
+    private Stocktaking() {
 
-        FileOutputStream fos = new FileOutputStream("VesselBox");
-
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-        oos.writeObject(vessel);
-
-        oos.close();
-        fos.close();
     }
+
+    public static void registerBox(VesselBox box) throws IOException {
+        FileOutputStream fos = new FileOutputStream(String.valueOf(FILE));
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(box);
+        fos.close();
+        oos.close();
+    }
+
+    public static void disposeBox(VesselBox box) throws IOException {
+        FileInputStream fis = new FileInputStream(String.valueOf(FILE));
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        ois.close();
+        fis.close();
+        ois.close();
+    }
+
+    public static void getInfo(){
+        System.out.println();
+    }
+
 }

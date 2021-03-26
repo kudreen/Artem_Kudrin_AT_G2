@@ -17,7 +17,7 @@ public class VesselBox<T extends Vessel> implements Serializable {
 
 
 
-    private String name;
+    private String name = ;
     private int capacity;
     private List<Containable> box;
     private long id;
@@ -43,10 +43,10 @@ public class VesselBox<T extends Vessel> implements Serializable {
         }
     }
 
-    /*public boolean equals(Object o){
-        //переписанный метод equals
+    public boolean equals(Object o){
+
     }
-*/
+
 }
 
 
