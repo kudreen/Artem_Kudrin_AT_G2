@@ -8,7 +8,7 @@ import com.company.vessel.Vessel;
 import java.io.IOException;
 import java.util.Map;
 
-public class Warehouse  {
+public class Warehouse {
     private Map<Integer, VesselBox> stock;
 
 
@@ -20,12 +20,15 @@ public class Warehouse  {
     }
 
     public void getBox() {
-        stock.get(null);
+
+        stock.get(stock);
+        System.out.println(stock.hashCode());
+        //вывожу хешкод, но не вывожу name
     }
 
     void removeBox() {
-        stock.remove(null);
 
+        stock.remove(null);
     }
 
 

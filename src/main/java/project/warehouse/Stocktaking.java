@@ -11,7 +11,6 @@ public class Stocktaking extends Warehouse {
     private static final Path FILE = Path.of("C:\\File\\VesselBox");
 
     private Stocktaking() {
-
     }
 
     public static void registerBox(VesselBox box) throws IOException {
@@ -30,8 +29,10 @@ public class Stocktaking extends Warehouse {
         ois.close();
     }
 
-    public static void getInfo(){
-        System.out.println();
+    public static void getInfo() {
+        Warehouse getInfo = new Warehouse();
+        getInfo.getBox();
+
     }
 
 }
