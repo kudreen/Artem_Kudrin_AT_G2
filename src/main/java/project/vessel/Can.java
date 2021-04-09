@@ -1,7 +1,6 @@
 package com.company.vessel;
 
 import com.company.material.Material;
-import com.company.material.Plastic;
 import com.company.stuff.Transformable;
 
 public abstract class Can extends Vessel implements Containable {

@@ -1,23 +1,23 @@
 package com.company.material;
 
-public abstract class Material {
+public enum Material {
+    Glass ( 0.017, "green", 2200),
+    Plastic (0.2, "white", 1800),
+    Metal (58.0, "silver", 7800);
+
     private double thermalConductivity;
     private String color;
     private double density;
 
-    public Material(double thermalConductivity, double density, String color) {
-        this.thermalConductivity = 0;
-        this.color = "white";
-        this.density = 0;
+
+
+    Material(double thermalConductivity, String color, double density) {
+        this.thermalConductivity = thermalConductivity;
+        this.color = color;
+        this.density = density;
     }
 
-    public Material() {
 
-    }
-
-    /*public Material() {
-
-    }*/
 
     public double getThermalConductivity() {
         return thermalConductivity;

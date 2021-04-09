@@ -10,31 +10,25 @@ public abstract class Vessel {
 
 
     public Vessel(double volume, double diameter, int weight, Material material) {
-        this.volume = 1;
-        this.diameter = 1;
-        this.weight = 1;
+        this.volume = volume;
+        this.diameter = diameter;
+        this.weight = weight;
         this.material = material;
     }
 
-    public Vessel() {
-        Material density = new Material() {
-            @Override
-            public double getDensity() {
-                return super.getDensity();
-            }
-        };
-
-        double dens = density.getDensity();
-
-        this.weight = (int) (dens * volume / 4);
+    public Vessel(double volume, double diameter, Material material) {
+        this.volume = volume;
+        this.diameter = diameter;
+        this.material = material;
     }
 
     public double getVolume() {
         return volume;
     }
 
-    public void setVolume(double volume) {
+    public double setVolume(double volume) {
         this.volume = volume;
+        return volume;
     }
 
     public double getDiameter() {
@@ -57,8 +51,9 @@ public abstract class Vessel {
         return material;
     }
 
-    public void setMaterial(Material material) {
+    public Material setMaterial(Material material) {
         this.material = material;
+        return material;
     }
 }
 

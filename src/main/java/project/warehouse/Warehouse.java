@@ -1,12 +1,16 @@
 package com.company.warehouse;
 
-import com.company.material.Plastic;
+import com.company.material.Material;
+
 import com.company.vessel.Bottle;
 import com.company.vessel.Cup;
 import com.company.vessel.Vessel;
 
 import java.io.IOException;
 import java.util.Map;
+
+import static com.company.material.Material.Glass;
+import static com.company.material.Material.Plastic;
 
 public class Warehouse {
     private Map<Integer, VesselBox> stock;
@@ -33,10 +37,10 @@ public class Warehouse {
 
 
     public static void warehouse() throws Exception {
-        VesselBox<Vessel> bottle = new VesselBox<>(new Bottle(1, 10.0, 1, new Plastic()), 8);
+        VesselBox<Vessel> bottle = new VesselBox<>(new Bottle(), 9);
         System.out.println(bottle);
 
-        VesselBox<Vessel> cup = new VesselBox<>(new Cup(1, 8.0, 1, new Plastic()), 25);
+        VesselBox<Vessel> cup = new VesselBox<>(new Cup(), 25);
         System.out.println(cup);
 
     }
