@@ -1,27 +1,33 @@
-package day16;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
-import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BookingMaxRate {
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
-        System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
-        Actions action = new Actions(driver);
 
+    @Before
+    public void beforeTest() {
+        System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
         driver.get("https://booking.com");
+    }
+
+    @Test
+    public void test() {
+
+        Actions action = new Actions(driver);
 
         WebElement city = driver.findElement((By.xpath("//*[@id=\"frm\"]/div[1]/div[1]/div[1]/div[1]/label/span/following-sibling::*")));
         city.click();
@@ -47,10 +53,6 @@ public class BookingMaxRate {
         selector.click();
 
 
-        //WebDriverWait wait = new WebDriverWait(driver,1);
-        //wait.until(ExpectedCondition.(By.xpath(""));
-
-
         WebElement sorting = driver.findElement(By.xpath("//*[@id=\"ajaxsrwrap\"]/div[3]/div/div/div/ul/li[9]/ul/li[1]"));
         sorting.click();
 
@@ -65,8 +67,9 @@ public class BookingMaxRate {
         WebElement clickFirstResult = driver.findElement(By.xpath("//*[@id=\"hotellist_inner\"]/div[1]"));
         clickFirstResult.click();
 
-        driver.switchTo().window(String.valueOf(driver.getWindowHandles()));
-
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+        }
 
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -83,5 +86,11 @@ public class BookingMaxRate {
 
         System.out.println(rating);
 
+    }
+
+
+    @After
+    public void afterTest() {
+        driver.close();
     }
 }

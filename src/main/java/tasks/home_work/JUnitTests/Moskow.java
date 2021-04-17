@@ -1,6 +1,10 @@
-package day16;
-
-import org.openqa.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
@@ -9,9 +13,15 @@ public class Moskow {
 
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
+    @Before
+    public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
         driver.get("https://booking.com");
+    }
+
+
+    @Test
+    public void test() {
 
         WebElement city = driver.findElement((By.xpath("//*[@id=\"frm\"]/div[1]/div[1]/div[1]/div[1]/label/span/following-sibling::*")));
         city.click();
@@ -42,6 +52,10 @@ public class Moskow {
             System.out.println("Цвет верный");
         } else System.out.println("Цвет неправильный");
 
+    }
+
+    @After
+    public void afterTest() {
         driver.close();
     }
 }

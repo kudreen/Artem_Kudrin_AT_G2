@@ -1,20 +1,24 @@
-package day16;
-
-import org.junit.Assert;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
-import java.util.List;
 
 public class BookingMoskowRoomsByDate {
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
+    @Before
+    public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
         driver.get("https://booking.com");
+    }
+
+    @Test
+    public void test(){
 
         WebElement city = driver.findElement((By.xpath("//*[@id=\"frm\"]/div[1]/div[1]/div[1]/div[1]/label/span/following-sibling::*")));
         city.click();
@@ -36,8 +40,13 @@ public class BookingMoskowRoomsByDate {
         WebElement search = driver.findElement((By.xpath("//*[@id=\"frm\"]/div[1]/div[4]/div[2]/button/span[1]")));
         search.click();
 
-        if (driver.findElement(By.xpath("//*[@id=\"hotellist_inner\"]/div[1]")).isEnabled()) {
+        if (driver.findElement(By.xpath("//*[@id=\"hotellist_inner\"]")).isEnabled()) {
             System.out.println("результат есть");
         }
+    }
+
+    @After
+    public void afterTest() {
+        driver.close();
     }
 }

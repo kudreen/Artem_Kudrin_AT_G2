@@ -1,22 +1,27 @@
-package day16;
-
-import org.openqa.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.plaf.synth.SynthLookAndFeel;
 import java.io.IOException;
-import java.util.List;
 
 public class BookingCurrencyLanguage {
 
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
+    @Before
+    public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
-        Actions action = new Actions(driver);
-
         driver.get("https://booking.com");
+    }
+
+    @Test
+    public void test() throws IOException {
+        Actions action = new Actions(driver);
 
         WebElement currency = driver.findElement(By.xpath("//*[@id=\"b2indexPage\"]/header/nav[1]/div[2]/div[1]/button"));
         action.moveToElement(currency);
@@ -48,6 +53,11 @@ public class BookingCurrencyLanguage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @After
+    public void afterTest() {
+        driver.close();
     }
 }
 

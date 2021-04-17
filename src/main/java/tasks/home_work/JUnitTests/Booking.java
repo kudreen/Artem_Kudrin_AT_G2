@@ -1,4 +1,6 @@
-package day16;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +17,15 @@ public class Booking {
 
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
 
+    @Before
+    public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
-
         driver.get("https://booking.com");
+    }
+
+    @Test
+    public void test() {
 
         WebElement city = driver.findElement((By.xpath("//*[@id=\"frm\"]/div[1]/div[1]/div[1]/div[1]/label/span/following-sibling::*")));
         city.click();
@@ -76,19 +82,22 @@ public class Booking {
         System.out.println(minPriceForRoomTakeInts);
         System.out.println(maxPriceTakeInts);
 
-        int minPriceForRoomPaseInts=Integer.parseInt(minPriceForRoomTakeInts);
-        int maxPriceParseInts=Integer.parseInt(maxPriceTakeInts);
+        int minPriceForRoomPaseInts = Integer.parseInt(minPriceForRoomTakeInts);
+        int maxPriceParseInts = Integer.parseInt(maxPriceTakeInts);
 
-        int c = minPriceForRoomPaseInts/7;
+        int c = minPriceForRoomPaseInts / 7;
 
 
-        if (c >= maxPriceParseInts){
+        if (c >= maxPriceParseInts) {
             System.out.println("Минимальная цена за номер больше, чем минммальная цена за дорогой номер");
-        }
-        else System.out.println("Минимальная цена за номер меньше, чем минммальная цена за дорогой номер");
-
-        driver.close();
+        } else System.out.println("Минимальная цена за номер меньше, чем минммальная цена за дорогой номер");
     }
 
-
+    @After
+    public void afterTest() {
+        driver.close();
+    }
 }
+
+
+

@@ -1,5 +1,6 @@
-package day16;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,9 +12,15 @@ public class DemoQA {
 
     static WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws IOException {
+    @Before
+    public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromeDriver/chromedriver.exe");
         driver.get("https://demoqa.com/select-menu");
+
+    }
+
+    @Test
+    public void test() {
 
         WebElement firstDropdown = driver.findElement(By.cssSelector("#withOptGroup > div > div.css-1hwfws3"));
         firstDropdown.click();
@@ -39,5 +46,10 @@ public class DemoQA {
 
         driver.findElement(By.xpath("//*[@id=\"cars\"]/option[1]")).click();
 
+    }
+
+    @After
+    public void afterTest() {
+        driver.close();
     }
 }
