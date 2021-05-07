@@ -4,7 +4,7 @@ import day19.L4JLogging;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
-import steps.BaseSteps;
+import steps.bookingBaseSteps.BaseSteps;
 import steps.booking.MainPageSteps;
 import steps.booking.SearchResultsSteps;
 

@@ -3,7 +3,7 @@ package steps.precondition.trashMail;
 import driver.Driver;
 import org.openqa.selenium.WebDriver;
 import pages.trashmail.TrashmailMainPage;
-import steps.BaseSteps;
+import steps.bookingBaseSteps.BaseSteps;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -3,7 +3,7 @@ package tests.preconditions;
 import day19.L4JLogging;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeTest;
-import steps.BaseSteps;
+import steps.bookingBaseSteps.BaseSteps;
 import steps.precondition.trashMail.BaseMailCreationSteps;
 
 import java.io.IOException;

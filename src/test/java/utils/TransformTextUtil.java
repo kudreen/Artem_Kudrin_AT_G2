@@ -1,7 +1,6 @@
 package utils;
 
-import static steps.booking.SearchResultsSteps.getPriceFromFirstCard;
-import static steps.booking.SearchResultsSteps.getTexFromLeftSideMenu;
+import static steps.booking.SearchResultsSteps.*;
 
 public class TransformTextUtil {
 
@@ -14,6 +13,16 @@ public class TransformTextUtil {
     public static String maxPriceForRoom() {
         String maxPriceTakeInts = getTexFromLeftSideMenu().replaceAll("[^0-9]", "");
         return maxPriceTakeInts;
+    }
+
+    public static String ratingFromHotelpage() {
+        String rating = getRatingFromHotelPage().replaceAll("[^0-9]", "");
+        return rating;
+    }
+
+    public static int ratingFromHotelPageInteger() {
+        int actualRate = Integer.parseInt(ratingFromHotelpage());
+        return actualRate;
     }
 
     public static int transformMaxPriceForRoom() {
@@ -30,4 +39,7 @@ public class TransformTextUtil {
         int c = transformMinPriceForRoom() / 7;
         return c;
     }
+
+
+
 }

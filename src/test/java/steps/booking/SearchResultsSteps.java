@@ -36,7 +36,7 @@ public class SearchResultsSteps {
         driver.findElement(page.chooseMaxPriceInLeftSideMenu()).click();
     }
 
-    public static void fluentWait () {
+    public static void fluentWait() {
         LOGGER.debug("Step fluentWait");
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
@@ -46,7 +46,7 @@ public class SearchResultsSteps {
                         (page.fluentSpinnerWait()));
     }
 
-    public static void pickHighestStarsSelector(){
+    public static void pickHighestStarsSelector() {
         LOGGER.debug("Step pickHighestStarsSelector");
         driver.findElement(page.highestStarsSelector()).click();
     }
@@ -63,5 +63,15 @@ public class SearchResultsSteps {
         return priceTextFromLeftMenu;
     }
 
+    public static void clickFirstCardInSearchResults() {
+        driver.findElement(BookingSerchResultsPage.firstCardInSearchResults()).click();
+    }
 
+    public static String getRatingFromHotelPage() {
+
+        String ratingText = driver.findElement(BookingSerchResultsPage.ratingFildInHotelPage()).getText();
+        return ratingText;
+
+
+    }
 }
