@@ -1,4 +1,4 @@
-package steps;
+package steps.bookingBaseSteps;
 
 
 import day19.L4JLogging;
@@ -6,12 +6,16 @@ import driver.Driver;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseSteps {
-   // public static WebDriver driver;
     static WebDriver driver = Driver.getWebDriver();
     private static final Logger LOGGER = Logger.getLogger(L4JLogging.class.getName());
 
@@ -49,7 +53,20 @@ public class BaseSteps {
         driver = Driver.getWebDriver();
         driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
     }
+    public static void fluentWait() {
+        new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(5))
+                .ignoring(NoSuchElementException.class)
+                .until(ExpectedConditions.invisibilityOfElementLocated
+                        (By.cssSelector(".bui-spinner.bui-spinner--size-large")));
+    }
+
+    public static void switchActualPage() {
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+        }
 
 
-
+    }
 }

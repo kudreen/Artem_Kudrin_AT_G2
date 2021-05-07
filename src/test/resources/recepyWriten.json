@@ -1,0 +1,14 @@
+{
+  "recipename": "DranikRecipe",
+  "ingredlist": [
+    {
+      "itemdescription": "potato",
+      "quantity": 5
+    },
+    {
+      "itemdescription": "sonflowerOil",
+      "quantity": 1
+    }
+  ],
+  "preptime": 120
+}
