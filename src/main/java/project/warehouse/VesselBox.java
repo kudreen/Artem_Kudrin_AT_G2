@@ -4,16 +4,11 @@ import com.company.vessel.Containable;
 import com.company.vessel.Vessel;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-=======
 import java.lang.annotation.Native;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
->>>>>>> master
 
 
 public class VesselBox<T extends Vessel> implements Serializable {
@@ -24,19 +19,11 @@ public class VesselBox<T extends Vessel> implements Serializable {
     //T[] array = (T[]) new Object[9];
 
 
-<<<<<<< HEAD
-
-    private String name = ;
-    private int capacity;
-    private List<Containable> box;
-    private long id;
-=======
     private int capacity;
     private List<Containable> box;
     private long id;
     private String name = "I am box with " + capacity + " " + box;
 
->>>>>>> master
 
     public VesselBox(T vessel, int boxQuantity) throws Exception {
 
@@ -59,12 +46,6 @@ public class VesselBox<T extends Vessel> implements Serializable {
         }
     }
 
-<<<<<<< HEAD
-    public boolean equals(Object o){
-
-    }
-
-=======
     @Override
     public boolean equals(Object o){
      if (this == o)
@@ -100,7 +81,6 @@ public class VesselBox<T extends Vessel> implements Serializable {
     }
 
 
->>>>>>> master
 }
 
 

@@ -1,25 +1,5 @@
 package com.company.warehouse;
 
-<<<<<<< HEAD
-public class Factory {
-
-    public static void deleteVesselBox (){
-
-    }
-
-    public static void addVessels(){
-
-    }
-
-    public static void storeBoy(){
-
-    }
-
-    public static void createVessels(){
-
-    }
-}
-=======
 import com.company.material.Material;
 import com.company.stuff.Transformable;
 import com.company.vessel.Containable;
@@ -45,4 +25,3 @@ public class Factory {
     public static void createVessels(){ }*/
 
 
->>>>>>> master

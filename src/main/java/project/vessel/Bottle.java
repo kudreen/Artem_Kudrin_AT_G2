@@ -1,33 +1,9 @@
 package com.company.vessel;
 
-<<<<<<< HEAD
-import com.company.material.Plastic;
-=======
->>>>>>> master
 import com.company.stuff.SparklingWater;
 import com.company.material.Material;
 import com.company.stuff.Transformable;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-
-public class Bottle extends Vessel implements Containable {
-    private SparklingWater water;
-    List<Integer> bubbles = new ArrayList<>();
-
-    public Bottle(double volume, double diameter, int weight, Material material) {
-        super(volume, 10.0, weight, material);
-    }
-
-
-/*
-    public Bottle(){
-        super(0.5, 2.0, 1, new Plastic());
-
-    }
-*/
-=======
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +26,6 @@ public class Bottle extends Vessel implements Containable {
         this(0.5, 2.0, Plastic);
     }
 
->>>>>>> master
 
 
     @Override
@@ -84,19 +59,11 @@ public class Bottle extends Vessel implements Containable {
     }
 
     public void warm(int temperature) {
-<<<<<<< HEAD
-
-        //System.out.printf(" Warming water to %s", temperature).println();
-    }
-
-    public SparklingWater getWater() {
-=======
         stuff = stuff.stream().peek(x -> x.setOpened(false)).collect(Collectors.toList());
         //System.out.printf(" Warming water to %s", temperature).println();
     }
 
     /*public SparklingWater getWater() {
->>>>>>> master
         return this.water;
         //System.out.printf(" Getting 'Water' object");
     }
@@ -104,11 +71,7 @@ public class Bottle extends Vessel implements Containable {
     public void setWater(SparklingWater water) {
         this.water = water;
         //System.out.print(" Add new 'water' object ");
-<<<<<<< HEAD
-    }
-=======
     }*/
->>>>>>> master
 }
 
    /* @Override
