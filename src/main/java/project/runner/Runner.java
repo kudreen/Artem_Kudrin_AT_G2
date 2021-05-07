@@ -1,6 +1,10 @@
 package com.company.runner;
 
+<<<<<<< HEAD
 import com.company.material.Glass;
+=======
+
+>>>>>>> master
 import com.company.material.Material;
 import com.company.stuff.SparklingWater;
 import com.company.vessel.Bottle;
@@ -17,7 +21,11 @@ public class Runner {
 
        // Material material = new Material(0.017, 2200, "green");
 
+<<<<<<< HEAD
         Glass material = new Glass();
+=======
+
+>>>>>>> master
 
         //SparklingWater smallBottle = new SparklingWater(0.5);
         SparklingWater openSmallBottle = new SparklingWater(0.5);
@@ -29,7 +37,11 @@ public class Runner {
         SparklingWater openBigBottle = new SparklingWater(1.5);
 
         Warehouse warehouse = new Warehouse();
+<<<<<<< HEAD
         Warehouse.warehouse();
+=======
+        //Warehouse.warehouse();
+>>>>>>> master
 
     }
 

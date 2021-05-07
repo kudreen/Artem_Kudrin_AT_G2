@@ -1,5 +1,6 @@
 package com.company.vessel;
 
+<<<<<<< HEAD
 import com.company.material.Glass;
 import com.company.material.Material;
 import com.company.material.Plastic;
@@ -14,6 +15,24 @@ public class Cup extends Vessel implements Containable {
    /*public Cup() {
         super(0.5, 8.0, 1, new Plastic());
     }*/
+=======
+
+import com.company.material.Material;
+
+import com.company.stuff.Transformable;
+
+import static com.company.material.Material.Plastic;
+
+public class Cup extends Vessel implements Containable {
+    public Cup(double volume, double diameter, Material material, int i) {
+        super(volume, 8.0, material);
+    }
+
+
+   public Cup() {
+        super(0.5, 8.0, 1, Plastic);
+    }
+>>>>>>> master
 
     @Override
     public void addStuff(Transformable stuff) {
