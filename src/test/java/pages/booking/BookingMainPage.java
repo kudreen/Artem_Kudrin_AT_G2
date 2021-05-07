@@ -1,4 +1,5 @@
 package pages.booking;
+
 import org.openqa.selenium.By;
 
 public class BookingMainPage {
@@ -13,7 +14,7 @@ public class BookingMainPage {
         return obj;
     }
 
-    public static By dateInput(){
+    public static By dateInput() {
         By obj = By.xpath("//*[contains(@class, 'xp__dates xp__group')]");
         return obj;
     }
@@ -38,19 +39,34 @@ public class BookingMainPage {
         return obj;
     }
 
-    public static By plusAdultGuestBUtton(){
+    public static By plusAdultGuestBUtton() {
         By obj = By.xpath("//*[contains(@aria-label, 'Increase number of Adults')]");
         return obj;
     }
 
-    public static By registerButton(){
+    public static By registerButton() {
         By obj = By.xpath("//*[contains(@class, '-vertical-align-middle')]/child::*[5]");
         return obj;
     }
 
+    public static By currensyField() {
+        By obj = By.xpath("//*[contains(@data-modal-aria-label, 'currency')]");
+        return obj;
+    }
 
+    public static By currensyPopup() {
+        By obj = By.xpath("//*[contains(@class, 'bui-tooltip--bottom')]");
+        return obj;
+    }
 
+    public static By languageField() {
+        By obj = By.xpath("//*[contains(@data-modal-aria-label, 'language')]");
+        return obj;
+    }
 
+    public static By languagePopup() {
+        By obj = By.xpath("//*[contains(@class, 'bui-tooltip--bottom')]");
+        return obj;
 
-
+    }
 }

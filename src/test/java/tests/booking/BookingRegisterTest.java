@@ -4,7 +4,7 @@ import day19.L4JLogging;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
-import steps.BaseSteps;
+import steps.bookingBaseSteps.BaseSteps;
 import steps.booking.BookingRegisterTestSteps;
 import steps.booking.CheckingForAlertInBookingAccount;
 import steps.booking.ConfirmingRegistrationFronMailboxSteps;

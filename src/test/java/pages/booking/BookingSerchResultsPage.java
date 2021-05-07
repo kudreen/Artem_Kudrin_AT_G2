@@ -14,12 +14,12 @@ public class BookingSerchResultsPage {
         return obj;
     }
 
-    public static By chooseMaxPriceInLeftSideMenu(){
+    public static By chooseMaxPriceInLeftSideMenu() {
         By obj = By.xpath("//*[contains(@data-id, 'pri-5')]");
         return obj;
     }
 
-    public static By fluentSpinnerWait(){
+    public static By fluentSpinnerWait() {
         By obj = By.cssSelector(".bui-spinner.bui-spinner--size-large");
         return obj;
     }
@@ -28,9 +28,21 @@ public class BookingSerchResultsPage {
         By obj = By.xpath("//ul[contains(@role, 'menubar')]/child::*[3]");
         return obj;
     }
-    public static By priseFromFirstCard(){
+
+    public static By priseFromFirstCard() {
         By obj = By.xpath("//*[contains(@class, 'bui-price-display__value prco-inline-block-maker-helper')]");
         return obj;
     }
+
+    public static By firstCardInSearchResults() {
+        By obj = By.xpath("//*[@id='hotellist_inner']/child::*[1]//*[contains(@class, 'sr-hotel__name')]");
+        return obj;
+    }
+
+        public static By ratingFildInHotelPage(){
+            By obj = By.xpath("(//div[@class='bui-review-score__badge'])[1]");
+            return obj;
+        }
+
 
 }
