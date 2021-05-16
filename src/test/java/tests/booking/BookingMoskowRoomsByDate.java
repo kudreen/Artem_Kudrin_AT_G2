@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.booking.MainPageSteps;
-import steps.booking.SearchResultsSteps;
+import pages.booking.MainpagePage;
+import pages.booking.SearchResultsPage;
 
 public class BookingMoskowRoomsByDate extends BaseSteps{
     String pagename = "https://booking.com";
@@ -17,14 +17,14 @@ public class BookingMoskowRoomsByDate extends BaseSteps{
     @Test
     public void bookingMoskowRoomsByDateTest() {
         LOGGER.debug("start bookingMoskowRoomsByDateTest");
-        BaseSteps.openPageAdress(pagename);
-        MainPageSteps.enterCityName(city);
-        MainPageSteps.datesInput();
-        MainPageSteps.exactStartDate();
-        MainPageSteps.exaxtLeaveDate();
-        MainPageSteps.clickSearchButton();
-        BaseSteps.ppageLoadTimeout();
-        Assert.assertTrue(SearchResultsSteps.presentingsearchResults() == true);
+        openPageAdress(pagename);
+        MainpagePage.enterCityName(city);
+        MainpagePage.datesInput();
+        MainpagePage.exactStartDate();
+        MainpagePage.exaxtLeaveDate();
+        MainpagePage.clickSearchButton();
+        ppageLoadTimeout();
+        Assert.assertTrue(SearchResultsPage.presentingsearchResults() == true);
         LOGGER.debug("end bookingMoskowRoomsByDateTest");
     }
 }

@@ -3,9 +3,9 @@ package tests.booking;
 import org.junit.Assert;
 import org.junit.Test;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.booking.CurrencyAndLanguagePopupSteps;
+import pages.booking.CurrencyAndLanguagePopupPage;
 
-public class BookingCurrencyLanguage extends BaseSteps {
+public class BookingCurrencyLanguage extends BaseSteps  {
 
     String pageadress = "https://booking.com";
     String currensyTextEtalon = "Choose your currency";
@@ -14,16 +14,16 @@ public class BookingCurrencyLanguage extends BaseSteps {
     @Test
     public void currensyTooltipTest() {
         BaseSteps.openPageAdress(pageadress);
-        CurrencyAndLanguagePopupSteps.dragMouseToCurrensyField();
-        Assert.assertTrue(CurrencyAndLanguagePopupSteps.getTextFromCurrensyPupup()
+        CurrencyAndLanguagePopupPage.dragMouseToCurrensyField();
+        Assert.assertTrue(CurrencyAndLanguagePopupPage.getTextFromCurrensyPupup()
                 .equals(currensyTextEtalon));
     }
 
     @Test
     public void languageTooltipTest() {
-
-        CurrencyAndLanguagePopupSteps.dragMouseToLanguageField();
-        Assert.assertTrue(CurrencyAndLanguagePopupSteps.getTextFromLanguagePupup()
+        BaseSteps.openPageAdress(pageadress);
+        CurrencyAndLanguagePopupPage.dragMouseToLanguageField();
+        Assert.assertTrue(CurrencyAndLanguagePopupPage.getTextFromLanguagePupup()
                 .equals(languageTextEtalon));
 
     }
