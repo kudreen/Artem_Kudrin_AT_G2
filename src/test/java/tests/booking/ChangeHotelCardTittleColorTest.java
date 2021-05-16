@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.booking.MainPageSteps;
-import steps.booking.SearchResultsSteps;
+import pages.booking.MainpagePage;
+import pages.booking.SearchResultsPage;
 import utils.UtilChangeColors;
 
 public class ChangeHotelCardTittleColorTest extends BaseSteps {
@@ -19,11 +19,11 @@ public class ChangeHotelCardTittleColorTest extends BaseSteps {
     @Test
     public void changingCssColorsTest() {
         LOGGER.debug("start changingCssColorsTest");
-        BaseSteps.openPageAdress(pagename);
-        MainPageSteps.enterCityName(city);
-        MainPageSteps.clickSearchButton();
+        openPageAdress(pagename);
+        MainpagePage.enterCityName(city);
+        MainpagePage.clickSearchButton();
         UtilChangeColors.changeColors();
-        String getTextColor2 = SearchResultsSteps.getTittleTextColor();
+        String getTextColor2 = SearchResultsPage.getTittleTextColor();
         Assert.assertTrue(redRGBEtalon.equals(getTextColor2));
         LOGGER.debug("end changingCssColorsTest");
     }

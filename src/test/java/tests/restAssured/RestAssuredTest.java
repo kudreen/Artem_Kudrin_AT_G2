@@ -10,26 +10,26 @@ public class RestAssuredTest extends RestAssuredTestSteps{
 
     @Test
     public void restAssuredSearchByPartialUsername() throws FileNotFoundException {
-        Assert.assertTrue(RestAssuredTestSteps.searchByPartialUsername() == true);
+        Assert.assertTrue(searchByPartialUsername());
     }
 
     @Test
     public void restAssuredSearchByExactUsername() throws FileNotFoundException {
-        Assert.assertTrue(RestAssuredTestSteps.searchByExactUsername() == true);
+        Assert.assertTrue(searchByExactUsername());
     }
 
     @Test
     public void restAssuredSearchByExactRealname() throws FileNotFoundException {
-        Assert.assertTrue(RestAssuredTestSteps.searchByExactRealname() == true);
+        Assert.assertTrue(searchByExactRealname());
     }
 
     @Test
     public void restAssuredSearchByPartialRealname() throws FileNotFoundException {
-        Assert.assertTrue(RestAssuredTestSteps.searchByPartialRealname() == true);
+        Assert.assertTrue(searchByPartialRealname());
     }
 
     @Test
     public void restAssuredSearchAllUsers() throws FileNotFoundException {
-        Assert.assertTrue(RestAssuredTestSteps.searchAllUsers()== true);
+        Assert.assertTrue(searchAllUsers());
     }
 }

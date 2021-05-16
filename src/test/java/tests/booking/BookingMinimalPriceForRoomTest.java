@@ -5,13 +5,13 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.booking.MainPageSteps;
-import steps.booking.SearchResultsSteps;
+import pages.booking.MainpagePage;
+import pages.booking.SearchResultsPage;
 
 import static utils.TransformTextUtil.takePriceForDayFromSearchResult;
 import static utils.TransformTextUtil.transformMaxPriceForRoom;
 
-public class BookingMinimalPriceForRoomTest {
+public class BookingMinimalPriceForRoomTest extends BaseSteps {
     String pageadress = "https://booking.com";
     String city = "Paris, Ile de France, France";
     private static final Logger LOGGER = Logger.getLogger(L4JLogging.class.getName());
@@ -19,20 +19,19 @@ public class BookingMinimalPriceForRoomTest {
     @Test
     public void comparisonOfRatingTest() {
         LOGGER.debug("start comparisonOfRatingTest");
-        BaseSteps.openPageAdress(pageadress);
-        MainPageSteps.enterCityName(city);
-        MainPageSteps.datesInput();
-        MainPageSteps.exactStartDate();
-        MainPageSteps.exaxtLeaveDate();
-        MainPageSteps.clickGuestsToggle();
-        MainPageSteps.clickPlusAdultGuest();
-        MainPageSteps.clickPlusAdultGuest();
-        MainPageSteps.clickSearchButton();
-        BaseSteps.ppageLoadTimeout();
-        SearchResultsSteps.hooseMaxPriceInLeftSideMenu();
-        SearchResultsSteps.fluentWait();
-        SearchResultsSteps.pickHighestStarsSelector();
-        SearchResultsSteps.fluentWait();
+        openPageAdress(pageadress);
+        MainpagePage.enterCityName(city);
+        MainpagePage.datesInput();
+        MainpagePage.exactStartDate();
+        MainpagePage.exaxtLeaveDate();
+        MainpagePage.clickGuestsToggle();
+        MainpagePage.clickPlusAdultGuest();
+        MainpagePage.clickPlusAdultGuest();
+        MainpagePage.clickSearchButton();
+        ppageLoadTimeout();
+        SearchResultsPage.hooseMaxPriceInLeftSideMenu();
+        fluentWait();
+        SearchResultsPage.pickHighestStarsSelector();
         Assert.assertTrue(takePriceForDayFromSearchResult() <= transformMaxPriceForRoom());
         LOGGER.debug("end comparisonOfRatingTest");
     }
