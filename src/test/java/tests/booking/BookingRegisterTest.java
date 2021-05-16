@@ -5,9 +5,9 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.booking.BookingRegisterTestSteps;
-import steps.booking.CheckingForAlertInBookingAccount;
-import steps.booking.ConfirmingRegistrationFronMailboxSteps;
+import pages.booking.BookingRegisterTestPage;
+import pages.booking.CheckingForAlertInBookingAccountPage;
+import pages.booking.ConfirmingRegistrationFronMailboxPage;
 import tests.preconditions.BaseMailCreationTest;
 import utils.GetMailAdressFromFileUtil;
 
@@ -28,58 +28,44 @@ public class BookingRegisterTest extends BaseMailCreationTest {
     public void bookingRegisterTest() throws IOException {
         LOGGER.debug("start bookingRegisterTest");
         BaseSteps.openPageAdress(pagename);
-        BookingRegisterTestSteps.clickRegisterButton();
-        BookingRegisterTestSteps.sendMailAdress(GetMailAdressFromFileUtil.getEmailAdress());
+        BookingRegisterTestPage.clickRegisterButton();
+        BookingRegisterTestPage.sendMailAdress(GetMailAdressFromFileUtil.getEmailAdress());
         BaseSteps.implicitlyWait();
-        BookingRegisterTestSteps.confirmMailAdress();
-        BaseSteps.implicitlyWait();
-        BookingRegisterTestSteps.enterPassword(passwordForBooking);
-        BaseSteps.implicitlyWait();
-        BookingRegisterTestSteps.confirmPassword(passwordForBooking);
-        BaseSteps.implicitlyWait();
-        BookingRegisterTestSteps.submitPasswords();
-        BaseSteps.implicitlyWait();
-        BookingRegisterTestSteps.holdSubmitPasswords();
-        BaseSteps.implicitlyWait();
+        BookingRegisterTestPage.confirmMailAdress();
+        BookingRegisterTestPage.enterPassword(passwordForBooking);
+        BookingRegisterTestPage.confirmPassword(passwordForBooking);
+        BookingRegisterTestPage.submitPasswords();
+        BookingRegisterTestPage.holdSubmitPasswords();
         LOGGER.debug("end bookingRegisterTest");
     }
 
 
     @Test
-    public void confirmingRegistrationFronMailbox() throws  InterruptedException {
+    public void confirmingRegistrationFronMailbox() {
         BaseSteps.openPageAdress(mainMailAdress);
-        ConfirmingRegistrationFronMailboxSteps.loginEnterAdress(mailName);
-        ConfirmingRegistrationFronMailboxSteps.clickLoginButton();
+        ConfirmingRegistrationFronMailboxPage.loginEnterAdress(mailName);
+        ConfirmingRegistrationFronMailboxPage.clickLoginButton();
         BaseSteps.implicitlyWait();
-        ConfirmingRegistrationFronMailboxSteps.loginEnterPass(passwordForMainMail);
-        ConfirmingRegistrationFronMailboxSteps.loginClickPassButton();
-        BaseSteps.implicitlyWait();
-        ConfirmingRegistrationFronMailboxSteps.findAndClickConfirmationLetter();
-        BaseSteps.implicitlyWait();
-        ConfirmingRegistrationFronMailboxSteps.clickConfirmationButton();
+        ConfirmingRegistrationFronMailboxPage.loginEnterPass(passwordForMainMail);
+        ConfirmingRegistrationFronMailboxPage.loginClickPassButton();
+        ConfirmingRegistrationFronMailboxPage.findAndClickConfirmationLetter();
+        ConfirmingRegistrationFronMailboxPage.clickConfirmationButton();
     }
 
     @Test
     public void checkingForAlertInBookingAccount() throws IOException {
         BaseSteps.openPageAdress(pagename);
-        CheckingForAlertInBookingAccount.clickLoginButton();
+        CheckingForAlertInBookingAccountPage.clickLoginButton();
         BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.sendMailAdress(GetMailAdressFromFileUtil.getEmailAdress());
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.loginClickButton();
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.sendPass(passwordForBooking);
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.passClickButton();
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.profileButtonClick();
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.profileDropdownButtonClick();
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.personDetailsClick();
-        BaseSteps.implicitlyWait();
-        CheckingForAlertInBookingAccount.notification();
-        Assert.assertTrue(CheckingForAlertInBookingAccount.notification() == true);
+        CheckingForAlertInBookingAccountPage.sendMailAdress(GetMailAdressFromFileUtil.getEmailAdress());
+        CheckingForAlertInBookingAccountPage.loginClickButton();
+        CheckingForAlertInBookingAccountPage.sendPass(passwordForBooking);
+        CheckingForAlertInBookingAccountPage.passClickButton();
+        CheckingForAlertInBookingAccountPage.profileButtonClick();
+        CheckingForAlertInBookingAccountPage.profileDropdownButtonClick();
+        CheckingForAlertInBookingAccountPage.personDetailsClick();
+        CheckingForAlertInBookingAccountPage.notification();
+        Assert.assertTrue(CheckingForAlertInBookingAccountPage.notification() == true);
 
     }
 

@@ -54,6 +54,7 @@ public class BaseSteps {
         driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
     }
     public static void fluentWait() {
+        LOGGER.debug("Step fluentWait");
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(5))

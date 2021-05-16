@@ -4,7 +4,6 @@ import day19.L4JLogging;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeTest;
 import steps.bookingBaseSteps.BaseSteps;
-import steps.precondition.trashMail.BaseMailCreationSteps;
 
 import java.io.IOException;
 
@@ -18,13 +17,13 @@ public class BaseMailCreationTest extends BaseSteps {
     public void createNewMailbox() throws IOException {
         LOGGER.debug("start createNewMailbox");
         BaseSteps.openPageAdress(pagename);
-        BaseMailCreationSteps.chooseDomain();
-        BaseMailCreationSteps.inputRealEmail(mirrorMailbox);
-        BaseMailCreationSteps.clickFormRedirectionsNumber();
-        BaseMailCreationSteps.clickExactNumbersOfRedirections();
-        BaseMailCreationSteps.clickDesableCapcha();
-        BaseMailCreationSteps.pushCreateButton();
-        BaseMailCreationSteps.getCreatedEmailName();
+        steps.precondition.trashMail.BaseMailCreationPage.chooseDomain();
+        steps.precondition.trashMail.BaseMailCreationPage.inputRealEmail(mirrorMailbox);
+        steps.precondition.trashMail.BaseMailCreationPage.clickFormRedirectionsNumber();
+        steps.precondition.trashMail.BaseMailCreationPage.clickExactNumbersOfRedirections();
+        steps.precondition.trashMail.BaseMailCreationPage.clickDesableCapcha();
+        steps.precondition.trashMail.BaseMailCreationPage.pushCreateButton();
+        steps.precondition.trashMail.BaseMailCreationPage.getCreatedEmailName();
         LOGGER.debug("end createNewMailbox");
     }
 

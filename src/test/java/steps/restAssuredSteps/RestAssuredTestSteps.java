@@ -19,7 +19,17 @@ public class RestAssuredTestSteps {
     private static final Logger LOGGER = Logger.getLogger(L4JLogging.class.getName());
 
     @BeforeClass
-    public static RequestSpecification restAssuredBaseStep()  {
+    public static void StratOfTest()
+    {
+        LOGGER.info("End of test");
+    }
+
+    @AfterClass
+    public static void endOfTest() {
+        LOGGER.info("End of test");
+    }
+
+    public RequestSpecification restAssuredBaseStep()  {
         LOGGER.info("Start of test");
         RequestSpecification requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://178.124.206.46:8001/app/ws/")
@@ -30,12 +40,7 @@ public class RestAssuredTestSteps {
         return requestSpec;
     }
 
-    @AfterClass
-    public static void endOfTest() {
-        LOGGER.info("End of test");
-    }
-
-    public static Boolean searchByExactUsername() throws FileNotFoundException {
+    public boolean searchByExactUsername() throws FileNotFoundException {
         String result = RestAssured
                 .given()
                 .spec(restAssuredBaseStep())
@@ -45,13 +50,10 @@ public class RestAssuredTestSteps {
                 .then()
                 .extract().body().asString();
         LOGGER.debug(result);
-        if (result.contains("id")) {
-            return true;
-        }
-        else return false;
+        return result.contains("id");
     }
 
-    public static Boolean searchByPartialUsername() throws FileNotFoundException {
+    public boolean searchByPartialUsername() throws FileNotFoundException {
         String result = RestAssured
                 .given()
                 .spec(restAssuredBaseStep())
@@ -61,13 +63,10 @@ public class RestAssuredTestSteps {
                 .then()
                 .extract().body().asString();
         LOGGER.debug(result);
-        if (result.contains("id")) {
-            return true;
-        }
-        else return false;
+        return result.contains("id");
     }
 
-    public static Boolean searchByExactRealname() throws FileNotFoundException {
+    public boolean searchByExactRealname() throws FileNotFoundException {
         String result = RestAssured
                 .given()
                 .spec(restAssuredBaseStep())
@@ -77,13 +76,10 @@ public class RestAssuredTestSteps {
                 .then()
                 .extract().body().asString();
         LOGGER.debug(result);
-        if (result.contains("id")) {
-            return true;
-        }
-        else return false;
+        return result.contains("id");
     }
 
-    public static Boolean searchByPartialRealname() throws FileNotFoundException {
+    public boolean searchByPartialRealname() throws FileNotFoundException {
         String result = RestAssured
                 .given()
                 .spec(restAssuredBaseStep())
@@ -93,13 +89,10 @@ public class RestAssuredTestSteps {
                 .then()
                 .extract().body().asString();
         LOGGER.debug(result);
-        if (result.contains("id")) {
-            return true;
-        }
-        else return false;
+        return result.contains("id");
     }
 
-    public static Boolean searchAllUsers() throws FileNotFoundException {
+    public boolean searchAllUsers() throws FileNotFoundException {
         String result = RestAssured
                 .given()
                 .spec(restAssuredBaseStep())
@@ -109,9 +102,6 @@ public class RestAssuredTestSteps {
                 .then()
                 .extract().body().asString();
         LOGGER.debug(result);
-        if (result.contains("id")) {
-            return true;
-        }
-        else return false;
+        return result.contains("id");
     }
 }
